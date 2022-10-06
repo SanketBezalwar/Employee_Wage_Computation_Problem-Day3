@@ -3,6 +3,7 @@ package Employee_Wage_Computation_Day3;
 import java.util.Random;
 
 public class Employee_Wage {
+	static int isPresent;
 	static int wage_Per_Hour = 20;
 	static int full_Day_Hour = 8;
 	static int part_Time_Hour = 4;
@@ -21,7 +22,7 @@ public class Employee_Wage {
 	// employee attendance check
 	public void employeeAttendance() {
 		Random inp = new Random();
-		int isPresent = inp.nextInt(2);
+		isPresent = inp.nextInt(2);
 
 		System.out.println("Attendance : ");
 		if (isPresent == 0)
@@ -37,15 +38,27 @@ public class Employee_Wage {
 		int dailyWage2;
 
 		dailyWage1 = full_Day_Hour * wage_Per_Hour;
-		System.out.println("Calculate Daily Employee Wage : ");
-		System.out.println("Employee is Full Time");
-		System.out.println("Daily wage of Employee is " + dailyWage1 + " Rs ");
-		System.out.println();
-
 		dailyWage2 = part_Time_Hour * wage_Per_Hour;
-		System.out.println("Employee is Part Time");
-		System.out.println("Daily wage of Employee is " + dailyWage2 + " Rs ");
-		System.out.println();
+
+		System.out.println("Calculate Daily Employee Wage : ");
+
+		Random inp = new Random();
+		isPresent = inp.nextInt(3);
+		switch (isPresent) {
+		case 0:
+			System.out.println("Employee is Full Time");
+			System.out.println("Daily wage of Employee is " + dailyWage1 + " Rs ");
+			break;
+
+		case 1:
+			System.out.println("Employee is Part Time");
+			System.out.println("Daily wage of Employee is " + dailyWage2 + " Rs ");
+			break;
+
+		case 2:
+			System.out.println("Employee is Absent");
+			break;
+		}
 	}
 
 }
