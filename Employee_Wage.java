@@ -16,6 +16,7 @@ public class Employee_Wage {
 
 		emp.employeeAttendance();
 		emp.dailyEmployeeWage();
+		emp.wageDaysHours();
 
 	}
 
@@ -49,7 +50,7 @@ public class Employee_Wage {
 		System.out.println("Calculate Employee Wage : ");
 
 		Random inp = new Random();
-		isPresent = inp.nextInt(3);
+		isPresent = inp.nextInt(2);
 		switch (isPresent) {
 		case 0:
 			System.out.println("Employee is Full Time");
@@ -62,11 +63,38 @@ public class Employee_Wage {
 			System.out.println("Daily Wage of Employee is " + dailyWage2 + " Rs ");
 			System.out.println("Monthly Wage of Employee is " + monthlyWage2 + " Rs ");
 			break;
-
-		case 2:
-			System.out.println("Employee is Absent");
-			break;
 		}
+
+	}
+
+	// wages till hours or days is reached
+	public void wageDaysHours() {
+		int isWorking;
+		int totalWage = 0;
+		int maxWordDays = 0;
+		int maxWorkHours = 0;
+
+		while (maxWorkHours <= 100 && maxWordDays <= 20) {
+
+			Random inp = new Random();
+			isWorking = inp.nextInt(2);
+			maxWordDays = maxWordDays + 1;
+
+			switch (isWorking) {
+			case 0:
+				totalWage = totalWage + wage_Per_Hour * 4;
+				maxWorkHours = maxWorkHours + 4;
+				break;
+
+			case 1:
+				totalWage = totalWage + wage_Per_Hour * 8;
+				maxWorkHours = maxWorkHours + 8;
+				break;
+			}
+		}
+
+		System.out.println("Employee Wage for Total Working Hours is " + totalWage);
+
 	}
 
 }
